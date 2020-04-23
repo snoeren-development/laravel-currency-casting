@@ -1,0 +1,42 @@
+{
+    "name": "snoeren-development/laravel-currency-casting",
+    "description": "Cast currency attributes stored as integer to floats automatically.",
+    "keywords": [
+        "laravel",
+        "currency",
+        "casting",
+        "snoeren"
+    ],
+    "authors": [
+        {
+            "name": "Michael Snoeren",
+            "email": "info@snoerendevelopment.nl"
+        }
+    ],
+    "homepage": "https://github.com/snoeren-development/laravel-currency-casting",
+    "license": "MIT",
+    "require": {
+        "php": "^7.2",
+        "illuminate/support": "^6.0|^7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.1",
+        "phpunit/phpunit": "^9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "SnoerenDevelopment\\CurrencyCasting\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SnoerenDevelopment\\CurrencyCasting\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit ./tests"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
