@@ -68,4 +68,19 @@ class ModelTest extends TestCase
         $model = (new Model)->setRawAttributes(['price' => 1700]);
         $this->assertSame(17.0, $model->price);
     }
+
+    /**
+     * Test if the caster handles null values.
+     *
+     * @return void
+     * @test
+     */
+    public function casterHandlesNullValues(): void
+    {
+        $model = new Model(['price' => null]);
+        $this->assertSame(null, $model->price);
+
+        $model = new Model(['price' => 0]);
+        $this->assertSame(0.0, $model->price);
+    }
 }
