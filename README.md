@@ -46,7 +46,7 @@ $ composer test
 
 ## Credits
 - [Michael Snoeren](https://github.com/MSnoeren)
-- [All Contributors](https://github.com/snoeren-development/laravel-discord-webhook-channel/graphs/contributors)
+- [All Contributors](https://github.com/snoeren-development/laravel-currency-casting-channel/graphs/contributors)
 
 ## License
 The MIT license. See [LICENSE](LICENSE) for more information.
