@@ -13,7 +13,7 @@ class Currency implements CastsAttributes
      * @param  \Illuminate\Database\Eloquent\Model $model      The model object.
      * @param  string                              $key        The property name.
      * @param  mixed                               $value      The property value.
-     * @param  array                               $attributes The attributes array.
+     * @param  array                               $attributes The model attributes array.
      * @return float
      */
     public function get($model, string $key, $value, array $attributes)
@@ -29,7 +29,7 @@ class Currency implements CastsAttributes
      * @param  \Illuminate\Database\Eloquent\Model $model      The model object.
      * @param  string                              $key        The property name.
      * @param  mixed                               $value      The property value.
-     * @param  array                               $attributes The attributes array.
+     * @param  array                               $attributes The model attributes array.
      * @return array
      */
     public function set($model, string $key, $value, array $attributes)
