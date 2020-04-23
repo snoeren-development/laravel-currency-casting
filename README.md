@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/packagist/dt/snoeren-development/laravel-currency-casting?style=flat-square)](https://packagist.org/packages/snoeren-development/laravel-currency-casting)
 [![Donate](https://img.shields.io/beerpay/snoeren-development/laravel-currency-casting?style=flat-square)](https://beerpay.io/snoeren-development/laravel-currency-casting)
 
-This package adds a Laravel model cast. This way you can cast any attribute, with an integer value, to a currency!
+This package adds a Laravel model cast. This way you can cast any attribute that stores a currency, with an integer value in the database, to a float automatically!
 
 ## Installation
 You can install the package using Composer:
@@ -17,6 +17,7 @@ composer require snoeren-development/laravel-currency-casting
 This package requires PHP 7.2 or higher.
 
 ### Usage
+Store your currency as an integer value in the database. This is more accurate than storing it as a float.
 Add the attributes you'd like to see cast to the `casts` array and assign the `Currency` class to it.
 ```php
 use Illuminate\Database\Eloquent\Model;
@@ -27,7 +28,7 @@ class Plan extends Model
     //
 
     /**
-     * The attributes that are should be cast.
+     * The attributes that should be cast.
      *
      * @var array
      */
