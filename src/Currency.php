@@ -18,7 +18,7 @@ class Currency implements CastsAttributes
      */
     public function get($model, string $key, $value, array $attributes)
     {
-        return $value / 100;
+        return round($value / 100, 2);
     }
 
     /**

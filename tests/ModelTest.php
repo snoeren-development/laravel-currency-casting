@@ -30,4 +30,42 @@ class ModelTest extends TestCase
         $model = (new Model)->setRawAttributes(['price' => 1751]);
         $this->assertSame(17.51, $model->price);
     }
+
+    /**
+     * Test if the caster handles string values too.
+     *
+     * @return void
+     * @test
+     */
+    public function casterHandlesStringValues(): void
+    {
+        $model = new Model(['price' => '193.47']);
+        $this->assertSame(19347, $model->getRawAttribute('price'));
+        $this->assertSame(193.47, $model->price);
+    }
+
+    /**
+     * Test if the caster ignores values after the second decimal.
+     *
+     * @return void
+     * @test
+     */
+    public function casterIgnoresDecimalsAfterSecondPosition(): void
+    {
+        $model = new Model(['price' => 472.18951753]);
+        $this->assertSame(47218, $model->getRawAttribute('price'));
+        $this->assertSame(472.18, $model->price);
+    }
+
+    /**
+     * Test if the caster handles full numbers correctly.
+     *
+     * @return void
+     * @test
+     */
+    public function casterHandlesFullNumbers(): void
+    {
+        $model = (new Model)->setRawAttributes(['price' => 1700]);
+        $this->assertSame(17.0, $model->price);
+    }
 }
