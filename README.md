@@ -14,7 +14,7 @@ composer require snoeren-development/laravel-currency-casting
 ```
 
 ### Requirements
-This package requires PHP 7.2 or higher.
+This package requires at least PHP 7.2 and Laravel 6.
 
 ### Usage
 Store your currency as an integer value in the database. This is more accurate than storing it as a float.
