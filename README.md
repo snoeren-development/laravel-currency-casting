@@ -4,7 +4,6 @@
 [![Build status](https://img.shields.io/github/workflow/status/snoeren-development/laravel-currency-casting/PHP%20Tests?style=flat-square)](https://github.com/snoeren-development/laravel-currency-casting/actions)
 [![Downloads](https://img.shields.io/packagist/dt/snoeren-development/laravel-currency-casting?style=flat-square)](https://packagist.org/packages/snoeren-development/laravel-currency-casting)
 [![Donate](https://img.shields.io/beerpay/snoeren-development/laravel-currency-casting?style=flat-square)](https://beerpay.io/snoeren-development/laravel-currency-casting)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/snoeren-development/laravel-currency-casting/PHP%20Tests?style=flat-square)
 
 This package adds a Laravel model cast. This way you can cast any attribute that stores a currency, with an integer value in the database, to a float automatically!
 
