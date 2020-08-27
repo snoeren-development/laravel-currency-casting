@@ -4,9 +4,31 @@ declare(strict_types = 1);
 namespace SnoerenDevelopment\CurrencyCasting\Tests;
 
 use PHPUnit\Framework\TestCase;
+use SnoerenDevelopment\CurrencyCasting\Currency;
+use Illuminate\Database\Eloquent\Model as EloquentModel;
 
 class ModelTest extends TestCase
 {
+    /**
+     * Test if the constructor throws an exception on invalid digits.
+     *
+     * @return void
+     * @test
+     */
+    public function constructorThrowsExceptionOnInvalidInput(): void
+    {
+        // Create a new anonymous model class.
+        $model = new class extends EloquentModel {
+            protected $fillable = ['test'];
+            protected $casts = [
+                'test' => Currency::class. ':0',
+            ];
+        };
+
+        $this->expectException(\InvalidArgumentException::class);
+        $model->test = 12.3;
+    }
+
     /**
      * Test if the attribute is set to an integer value.
      *
@@ -82,5 +104,20 @@ class ModelTest extends TestCase
 
         $model = new Model(['price' => 0]);
         $this->assertSame(0.0, $model->price);
+
+        $model->price = null;
+        $this->assertSame(null, $model->getRawAttribute('price'));
+    }
+
+    /**
+     * Test if the multiplier correctly multiplies the price.
+     *
+     * @return void
+     * @test
+     */
+    public function moreDigitsMultipliesThePrice(): void
+    {
+        $model = new Model(['price_triple' => 17.576]);
+        $this->assertSame(17576, $model->getRawAttribute('price_triple'));
     }
 }

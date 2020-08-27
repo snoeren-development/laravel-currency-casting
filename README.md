@@ -18,8 +18,9 @@ This package requires at least PHP 7.2 and Laravel 6.
 
 ### Usage
 Store your currency as an integer value in the database. This is more accurate than storing it as a float.
-Add the attributes you'd like to see cast to the `casts` array and assign the `Currency` class to it.
+Add the attributes you'd like to see cast to the `casts` array and assign the `Currency` class to it. If you need more than the default 2 digits currency usually has, you can append the number of digits you need after the currency class like in the example below. Just make sure your database column can handle the larger integer it produces.
 ```php
+<?php
 use Illuminate\Database\Eloquent\Model;
 use SnoerenDevelopment\CurrencyCasting\Currency;
 
@@ -34,6 +35,7 @@ class Plan extends Model
      */
     protected $casts = [
         'price' => Currency::class,
+        'price_with_digits' => Currency::class . ':4',
     ];
 
     //

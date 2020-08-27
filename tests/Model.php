@@ -15,6 +15,7 @@ class Model extends EloquentModel
      */
     protected $fillable = [
         'price',
+        'price_triple',
     ];
 
     /**
@@ -24,6 +25,7 @@ class Model extends EloquentModel
      */
     protected $casts = [
         'price' => Currency::class,
+        'price_triple' => Currency::class . ':3',
     ];
 
     /**
