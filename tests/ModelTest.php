@@ -119,5 +119,6 @@ class ModelTest extends TestCase
     {
         $model = new Model(['price_triple' => 17.576]);
         $this->assertSame(17576, $model->getRawAttribute('price_triple'));
+        $this->assertSame(17.576, $model->price_triple);
     }
 }

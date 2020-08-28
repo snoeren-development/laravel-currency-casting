@@ -8,11 +8,11 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 class Currency implements CastsAttributes
 {
     /**
-     * The currency multiplier.
+     * The amount of digits.
      *
      * @var integer
      */
-    protected $multiplier;
+    protected $digits;
 
     /**
      * Constructor
@@ -28,7 +28,7 @@ class Currency implements CastsAttributes
             throw new \InvalidArgumentException('Digits should be a number larger than zero.');
         }
 
-        $this->multiplier = 10 ** $digits;
+        $this->digits = $digits;
     }
 
     /**
@@ -43,7 +43,7 @@ class Currency implements CastsAttributes
     public function get($model, string $key, $value, array $attributes)
     {
         return $value !== null
-            ? round($value / $this->multiplier, 2)
+            ? round($value / (10 ** $this->digits), $this->digits)
             : null;
     }
 
@@ -58,6 +58,6 @@ class Currency implements CastsAttributes
      */
     public function set($model, string $key, $value, array $attributes)
     {
-        return (int) ($value * $this->multiplier);
+        return (int) ($value * (10 ** $this->digits));
     }
 }
