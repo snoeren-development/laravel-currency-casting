@@ -20,6 +20,7 @@
         "illuminate/support": "^6.0|^7.0|^8.0"
     },
     "require-dev": {
+        "illuminate/database": "^8.14",
         "phpunit/phpunit": "^8.5"
     },
     "autoload": {
