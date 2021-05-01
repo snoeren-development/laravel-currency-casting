@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
 class Model extends EloquentModel
 {
     /**
-     * The attributes that are be mass assignable.
+     * The attributes that are mass assignable.
      *
      * @var array
      */
@@ -19,7 +19,7 @@ class Model extends EloquentModel
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be cast to native types.
      *
      * @var array
      */
