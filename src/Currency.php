@@ -38,9 +38,9 @@ class Currency implements CastsAttributes
      * @param  string                              $key        The property name.
      * @param  mixed                               $value      The property value.
      * @param  array                               $attributes The model attributes array.
-     * @return float
+     * @return mixed
      */
-    public function get($model, string $key, $value, array $attributes)
+    public function get($model, string $key, $value, array $attributes): mixed
     {
         return $value !== null
             ? round($value / (10 ** $this->digits), $this->digits)
@@ -54,10 +54,12 @@ class Currency implements CastsAttributes
      * @param  string                              $key        The property name.
      * @param  mixed                               $value      The property value.
      * @param  array                               $attributes The model attributes array.
-     * @return integer
+     * @return mixed
      */
-    public function set($model, string $key, $value, array $attributes)
+    public function set($model, string $key, $value, array $attributes): mixed
     {
-        return (int) ($value * (10 ** $this->digits));
+        return $value !== null
+            ? (int) ($value * (10 ** $this->digits))
+            : null;
     }
 }
