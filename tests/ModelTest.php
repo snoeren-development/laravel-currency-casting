@@ -72,11 +72,11 @@ class ModelTest extends TestCase
      * @return void
      * @test
      */
-    public function casterIgnoresDecimalsAfterSecondPosition(): void
+    public function casterRoundsDecimals(): void
     {
         $model = new Model(['price' => 472.18951753]);
-        $this->assertSame(47218, $model->getRawAttribute('price'));
-        $this->assertSame(472.18, $model->price);
+        $this->assertSame(47219, $model->getRawAttribute('price'));
+        $this->assertSame(472.19, $model->price);
     }
 
     /**
