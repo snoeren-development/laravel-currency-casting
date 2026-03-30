@@ -15,7 +15,7 @@ class ModelTest extends TestCase
      * @return void
      * @test
      */
-    public function constructorThrowsExceptionOnInvalidInput(): void
+    public function testConstructorThrowsExceptionOnInvalidInput(): void
     {
         // Create a new anonymous model class.
         $model = new class extends EloquentModel {
@@ -35,7 +35,7 @@ class ModelTest extends TestCase
      * @return void
      * @test
      */
-    public function attributeIsSetToIntegerValue(): void
+    public function testAttributeIsSetToIntegerValue(): void
     {
         $model = new Model(['price' => 17.51]);
         $this->assertSame(1751, $model->getRawAttribute('price'));
@@ -47,7 +47,7 @@ class ModelTest extends TestCase
      * @return void
      * @test
      */
-    public function attributeIsRetrievedAsFloat(): void
+    public function testAttributeIsRetrievedAsFloat(): void
     {
         $model = (new Model)->setRawAttributes(['price' => 1751]);
         $this->assertSame(17.51, $model->price);
@@ -59,7 +59,7 @@ class ModelTest extends TestCase
      * @return void
      * @test
      */
-    public function casterHandlesStringValues(): void
+    public function testCasterHandlesStringValues(): void
     {
         $model = new Model(['price' => '193.47']);
         $this->assertSame(19347, $model->getRawAttribute('price'));
@@ -72,7 +72,7 @@ class ModelTest extends TestCase
      * @return void
      * @test
      */
-    public function casterRoundsDecimals(): void
+    public function testCasterRoundsDecimals(): void
     {
         $model = new Model(['price' => 472.18951753]);
         $this->assertSame(47219, $model->getRawAttribute('price'));
@@ -85,7 +85,7 @@ class ModelTest extends TestCase
      * @return void
      * @test
      */
-    public function casterHandlesFullNumbers(): void
+    public function testCasterHandlesFullNumbers(): void
     {
         $model = (new Model)->setRawAttributes(['price' => 1700]);
         $this->assertSame(17.0, $model->price);
@@ -97,7 +97,7 @@ class ModelTest extends TestCase
      * @return void
      * @test
      */
-    public function casterHandlesNullValues(): void
+    public function testCasterHandlesNullValues(): void
     {
         $model = new Model(['price' => null]);
         $this->assertSame(null, $model->price);
@@ -115,7 +115,7 @@ class ModelTest extends TestCase
      * @return void
      * @test
      */
-    public function moreDigitsMultipliesThePrice(): void
+    public function testMoreDigitsMultipliesThePrice(): void
     {
         $model = new Model(['price_triple' => 17.576]);
         $this->assertSame(17576, $model->getRawAttribute('price_triple'));
